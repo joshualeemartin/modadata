@@ -1,0 +1,2304 @@
+
+# coding: utf-8
+
+# In[1]:
+
+
+fil7 = ['filter', 'air filter', 'filters', 'air filters']
+
+
+# In[2]:
+
+
+#Case 1
+
+
+# In[3]:
+
+
+fil1 = ['filter', 'air filter', 'filters', 'air filters']
+
+
+# In[4]:
+
+
+att1sg = ['with [ATTRIBUTE: e.g., \"allergen defense\"]', 'with good [ATTRIBUTE: e.g., \"allergen defense\"]', 'for [ATTRIBUTE: e.g., \"allergen defense\"]', 'that [ATTRIBUTE: e.g., \"lasts\"]', 'that is [ATTRIBUTE: e.g., \"effective\"]', 'that has [ATTRIBUTE: e.g., \"quality\"]', 'that will not be [ATTRIBUTE: e.g., \"flimsy\"]', 'to clean [ATTRIBUTE: e.g., \"mold\"]', ]
+
+
+# In[5]:
+
+
+for a in att1sg:
+    print(att1sg.index(a), a)
+
+
+# In[6]:
+
+
+att1pl = ['with [ATTRIBUTE: e.g., \"allergen defense\"]', 'with good [ATTRIBUTE: e.g., \"allergen defense\"]', 'for [ATTRIBUTE: e.g., \"allergen defense\"]', 'that [ATTRIBUTE: e.g., \"last\"]', 'that are [ATTRIBUTE: e.g., \"effective\"]', 'that have [ATTRIBUTE: e.g., \"quality\"]', 'that will not be [ATTRIBUTE: e.g., \"flimsy\"]', 'to clean [ATTRIBUTE: e.g., \"mold\"]', ]
+
+
+# In[7]:
+
+
+for a in att1pl:
+    print(att1pl.index(a), a)
+
+
+# In[8]:
+
+
+filters = []
+
+for f in fil1:
+    for a in att1sg:
+        if 'filters' in f:
+            continue
+        else:
+            filters.append(f"{f} {a}")
+
+for f in fil1:
+    for a in att1pl:
+        if 'filters' in f:
+            filters.append(f"{f} {a}")
+        else:
+            continue
+
+
+# In[9]:
+
+
+for f in filters:
+    print(filters.index(f), f)
+
+
+# In[10]:
+
+
+s_s = ["I\'m looking for", 'I always look for', 'I want', 'I need', 'Best', 'Good', 'Highest rated', 'Top of the line', 'Do you have'] 
+
+
+# In[11]:
+
+
+for s in s_s:
+    print(s_s.index(s), s)
+
+
+# In[12]:
+
+
+s_s_1 = s_s[:4] + s_s[8:]
+
+
+# In[13]:
+
+
+for s in s_s_1:
+    print(s_s_1.index(s), s)
+
+
+# In[14]:
+
+
+s_s_2 = s_s[4:8]
+
+
+# In[15]:
+
+
+for s in s_s_2:
+    print(s_s_2.index(s), s)
+
+
+# In[16]:
+
+
+list1 = []
+
+for s in s_s_1:
+    for f in filters:
+        if 'filters' in f:
+            list1.append(f"{s} {f}")
+        else:
+            if 'air' in f:
+                list1.append(f"{s} an {f}")
+            else:
+                list1.append(f"{s} a {f}")
+                
+for s in s_s_2:
+    for f in filters:
+        list1.append(f"{s} {f}")
+
+
+# In[17]:
+
+
+list_2 = []
+
+for a in att1sg:
+    if a is att1sg[0]:
+        list_2.append(f"It's probably best to go {a}")
+    else:
+        continue
+
+for f in fil1:
+    for a in att1sg:
+        if a is att1sg[0]:
+            if 'filters' in f:
+                list_2.append(f"{f} {a}")
+            else:
+                if 'air' in f:
+                    list_2.append(f"An {f} {a}")
+                else:
+                    list_2.append(f"A {f} {a}")
+        else:
+            continue     
+            
+for f in fil1:
+    for a in att1sg:
+        if a is att1sg[5]:
+            if 'filters' in f:
+                list_2.append(f"{f} {att1pl[5]}")
+            else:
+                if 'air' in f:
+                    list_2.append(f"An {f} {a}")
+                else:
+                    list_2.append(f"A {f} {a}")
+        else:
+            continue 
+            
+for f in fil1:
+    for a in att1sg:
+        if a is att1sg[7]:
+            if 'filters' in f:
+                list_2.append(f"{f} {a}")
+            else:
+                if 'air' in f:
+                    list_2.append(f"An {f} {a}")
+                else:
+                    list_2.append(f"A {f} {a}")
+        else:
+            continue 
+            
+            
+for f in fil1:
+    for a in att1sg:
+        if a is att1sg[3]:
+            if 'filters' in f:
+                list_2.append(f"{f} {a}")
+            else:
+                if 'air' in f:
+                    list_2.append(f"An {f} {a}")
+                else:
+                    list_2.append(f"A {f} {a}")
+        else:
+            continue 
+            
+for a in att1sg:
+    list_2.append(f"One {a}")
+    
+
+for f in fil1:
+    list_2.append(f"The [ATTRIBUTE: e.g., \"cheap\"] {f}")
+
+for f in fil1:
+    if 'filters' in f:
+        list_2.append(f"The guy that installed our air conditioning said to get [ATTRIBUTE: e.g., \"cheap\"] {f}")
+    else:
+        list_2.append(f"The guy that installed our air conditioning said to get a [ATTRIBUTE: e.g., \"cheap\"] {f}")
+        
+        
+list_2.append(f"I base a lot of my decisions of [ATTRIBUTE: e.g., \"price\"]")
+
+list_2.append(f"Ultimately, my decision-making is based on [ATTRIBUTE: e.g., \"price\"]")
+
+for s in s_s[0:4]:
+    for f in fil1:
+        if 'filters' in f:
+            list_2.append(f"{s} [ATTRIBUTE: e.g., \"reputable\"] {f}")
+        else:
+            list_2.append(f"{s} a [ATTRIBUTE: e.g., \"reputable\"] {f}")
+
+list_2.append(f"I'm looking to filter [ATTRIBUTE: e.g., \"smoke\"] out of my house.")
+
+
+# In[18]:
+
+
+for l in list_2:
+    print(list_2.index(l), l)
+
+
+# In[19]:
+
+
+list_2com = list1[:] + list_2[:]
+
+
+# In[20]:
+
+
+for l in list_2com:
+    print(list_2com.index(l), l)
+
+
+# In[21]:
+
+
+case1_test = open('Case1.txt', 'w')
+
+case1_test.write('\n'.join(sorted(list(set(list_2com)))))
+
+case1_test.close()
+
+
+# In[22]:
+
+
+#Case 2
+
+
+# In[23]:
+
+
+filters2 = ['a filter', 'an air filter', 'filters', 'air filters']
+
+
+# In[24]:
+
+
+s_s2 = ["I\'m looking for", "I\'m looking to purchase", 'I want', 'I need', 'I think I need', 'I am here to buy', 'I\'m here to shop for', 'I want to invest in', 'I\'m shopping for', 'Here to obtain', 'Here to pick up', ', please', 'I need to grab', 'I need to get', 'Looking to procure', 'Do you have', 'Can I buy'] 
+
+
+# In[25]:
+
+
+for s in s_s2:
+    print(s_s2.index(s), s)
+
+
+# In[26]:
+
+
+list2 = []
+
+for s in s_s2:
+    for f in filters2:
+        if s in s_s2[15:]:
+            list2.append(f"{s} {f}?")
+        elif s is s_s2[13]:
+            list2.append(f"{s} {f} while I'm here")
+        elif s is s_s2[14]:
+            list2.append(f"{s} {f} for my house")
+        elif s is s_s2[11]:
+            list2.append(f"{f}{s}")
+        else:
+            list2.append(f"{s} {f}")
+
+
+# In[27]:
+
+
+for l in list2:
+    print(list2.index(l), l)
+
+
+# In[28]:
+
+
+case2_test = open('Case2.txt', 'w')
+
+case2_test.write('\n'.join(sorted(list(set(list2)))))
+
+case2_test.close()
+
+
+# In[29]:
+
+
+#Case 3
+
+
+# In[30]:
+
+
+brand = ['a [BRAND: e.g., \"3M\"] filter', 'a [BRAND: e.g., \"3M\"] air filter', '[BRAND: e.g., \"3M\"] filters', '[BRAND: e.g., \"3M\"] air filters']
+
+
+# In[31]:
+
+
+s_s3 = ["I\'m looking for", "I\'m looking to purchase", 'I want', 'I need', 'I think I need', 'I am here to buy', 'I\'m here to shop for', 'I want to invest in', 'I\'m shopping for', 'Here to pick up', 'I need to grab', 'I need to get', 'Looking to purchase', 'Do you have', 'Can I buy', 'I\'d like to obtain', 'Someone told me to try', 'My mom recommended', 'I want '] 
+
+
+# In[32]:
+
+
+for s in s_s3:
+    print(s_s3.index(s), s)
+
+
+# In[33]:
+
+
+list3 = []
+
+for s in s_s3:
+    for b in brand:
+        if s in s_s3[13:15]:
+            list3.append(f"{s} {b}?")
+        elif s is s_s3[10:12]:
+            list3.append(f"{s} {b} while I'm here")
+        elif s is s_s3[18]:
+            for f in fil7:
+                if 'filters' in f:
+                    list3.append(f"{s}{f} that are [BRAND: e.g., \"3M\"]")
+                else:
+                    if 'air' in f:
+                        list3.append(f"{s}an {f} that is [BRAND: e.g., \"3M\"]")
+                    else:
+                        list3.append(f"{s}a {f} that is [BRAND: e.g., \"3M\"]")
+        else:
+            list3.append(f"{s} {b}")
+
+
+# In[34]:
+
+
+list3_2 = sorted(list(set(list3)))
+
+
+# In[35]:
+
+
+for l in list3_2:
+    print(list3_2.index(l), l)
+    
+
+
+# In[36]:
+
+
+case3_test = open('Case3.txt', 'w')
+
+case3_test.write('\n'.join(sorted(list(set(list3_2)))))
+
+case3_test.close()
+
+
+# In[37]:
+
+
+#Case 11
+
+
+# In[38]:
+
+
+fil11sg = ['an air filter', 'a filter']
+
+
+# In[39]:
+
+
+fil11pl = ['air filters', 'filters']
+
+
+# In[40]:
+
+
+fil11com = fil11sg + fil11pl
+
+
+# In[41]:
+
+
+a11pl = ['[ATTRIBUTE: e.g., \"priced"] [CRITERIA: e.g. \"less than 10 dollars"\"]', '[CRITERIA: e.g., \"less than 10\"] [ATTRIBUTE: e.g., \"dollars\"]', 'with [ATTRIBUTE: e.g., \"MERV rating"] [CRITERIA: e.g. \"below 12\"]', 'with [CRITERIA: e.g., \"at least 3\"] [ATTRIBUTE: e.g., \"stars\"]', 'that are [ATTRIBUTE: e.g., \"priced\"] [CRITERIA: e.g., \"between 10 and 20 dollars\"]', 'that have [ATTRIBUTE: e.g., \"MERV rating\"] [CRITERIA: e.g., \"higher than 10\"]', 'that have a [CRITERIA: e.g., \"at minimum 3 month\"] [ATTRIBUTE: e.g., \"replacement time\"]', 'that have [CRITERIA: e.g., \"at least a 4\"] [ATTRIBUTE: e.g., \"star rating\"]', 'that [ATTRIBUTE: e.g., \"cost\"] [CRITERIA: e.g., \"at most 15 dollars\"]', 'that I need to [ATTRIBUTE: e.g., \"change\"] [CRITERIA: e.g., \"at maximum 3 months\"]', 'with [ATTRIBUTE: e.g., \"a replacement time\"] that is [CRITERIA: e.g., \"at most 3 months\"]']
+
+
+# In[42]:
+
+
+for a in a11pl:
+    print(a11pl.index(a), a)
+
+
+# In[43]:
+
+
+a11sg = ['[ATTRIBUTE: e.g., \"priced"] [CRITERIA: e.g. \"less than 10 dollars"\"]', '[CRITERIA: e.g., \"less than 10\"] [ATTRIBUTE: e.g., \"dollars\"]', 'with [ATTRIBUTE: e.g., \"MERV rating"] [CRITERIA: e.g. \"below 12\"]', 'with [CRITERIA: e.g., \"at least 3\"] [ATTRIBUTE: e.g., \"stars\"]', 'that is [ATTRIBUTE: e.g., \"priced\"] [CRITERIA: e.g., \"between 10 and 20 dollars\"]', 'that has [ATTRIBUTE: e.g., \"MERV rating\"] [CRITERIA: e.g., \"higher than 10\"]', 'that has a [CRITERIA: e.g., \"at minimum 3 month\"] [ATTRIBUTE: e.g., \"replacement time\"]', 'that has [CRITERIA: e.g., \"at least a 4\"] [ATTRIBUTE: e.g., \"star rating\"]', 'that [ATTRIBUTE: e.g., \"costs\"] [CRITERIA: e.g., \"at most 15 dollars\"]', 'that I need to [ATTRIBUTE: e.g., \"change\"] [CRITERIA: e.g., \"at maximum 3 months\"]', 'with [ATTRIBUTE: e.g., \"a replacement time\"] that is [CRITERIA: e.g., \"at most 3 months\"]']
+
+
+# In[44]:
+
+
+fac1 = []
+
+for f in fil11sg:
+    for a in a11sg:
+        fac1.append(f"{f} {a}")
+
+fac2 = []
+
+for i in fil11pl:
+    for c in a11pl:
+        fac2.append(f"{i} {c}")
+
+
+# In[45]:
+
+
+for f in fac1:
+    print(fac1.index(f), f)
+
+for f in fac2:
+    print(fac2.index(f), f)
+
+
+# In[46]:
+
+
+fac3 = fac1 + fac2
+
+
+# In[47]:
+
+
+for f in fac3:
+    print(fac3.index(f), f)
+
+
+# In[48]:
+
+
+s_s11 = ["I\'m looking for", 'I want', 'I need', 'I believe', 'I am here to purchase', 'I want to invest in', 'I\'m shopping for', 'Here to pick up', 'I need to get', 'I need to grab', 'Looking to purchase', 'Do you have', 'Someone told me to try', 'My mom suggested', 'I\'m going to go with', 'Where'] 
+
+
+# In[49]:
+
+
+for s in s_s11:
+    print(s_s11.index(s), s)
+
+
+# In[50]:
+
+
+which11 = []
+
+for f in fil7:
+    if 'filters' in f:
+        which11.append(f"Which {f} have [CRITERIA: e.g., \"at least 3\"] [ATTRIBUTES: e.g., \"stars\"]")
+    else:
+        which11.append(f"Which {f} has [CRITERIA: e.g., \"at least 3\"] [ATTRIBUTES: e.g., \"stars\"]")
+
+
+# In[51]:
+
+
+for w in which11:
+    print(which11.index(w), w)
+
+
+# In[52]:
+
+
+replace11 = []
+
+for s in s_s11:
+    for f in fil11com:
+        if 'filters' in f and s is not s_s11[15]:
+            replace11.append(f"{s} [CRITERIA: e.g., \"3 month\"] [ATTRIBUTE: e.g., \"replacement time\"] {f}")
+        elif s is s_s11[15]:
+            if 'filters' in f:
+                replace11.append(f"{s} are [CRITERIA: e.g., \"3 month\"] [ATTRIBUTE: e.g., \"replacement time\"] {f}")
+            else:
+                if 'air' in f:
+                    replace11.append(f"{s} is a [CRITERIA: e.g., \"3 month\"] [ATTRIBUTE: e.g., \"replacement time\"] {fil11sg[0][3:]}")
+                else:
+                    replace11.append(f"{s} is a [CRITERIA: e.g., \"3 month\"] [ATTRIBUTE: e.g., \"replacement time\"] {fil11sg[1][2:]}")
+        else:
+            if 'air' in f:
+                replace11.append(f"{s} a [CRITERIA: e.g., \"3 month\"] [ATTRIBUTE: e.g., \"replacement time\"] {fil11sg[0][3:]}")
+            else:
+                replace11.append(f"{s} a [CRITERIA: e.g., \"3 month\"] [ATTRIBUTE: e.g., \"replacement time\"] {fil11sg[1][2:]}")
+
+
+# In[53]:
+
+
+for r in replace11:
+    print(replace11.index(r), r)
+
+
+# In[54]:
+
+
+list11 = []
+
+for s in s_s11:
+    if s is s_s11[15]:
+        for f in fac3:
+            if 'filters' in f:
+                list11.append(f'{s} are {f}')
+            else:
+                list11.append(f'{s} is {f}')
+    elif s is s_s11[11]:
+        for f in fac3:
+            list11.append(f'{s} {f}')
+    elif s is s_s11[8]:
+        for x in fil11com:
+            if 'filters' in x:
+                for a in a11pl:
+                    list11.append(f'{s} {x} while I\'m here {a}')
+            else:
+                for b in a11sg:
+                    list11.append(f'{s} {x} while I\'m here {b}')
+    elif s is s_s11[9]:
+        for x in fil11com:
+            if 'filters' in x:
+                for a in a11pl:
+                    list11.append(f'{s} {x} while I\'m here {a}')
+            else:
+                for b in a11sg:
+                    list11.append(f'{s} {x} while I\'m here {b}')
+    else:
+        for f in fac3:
+            list11.append(f'{s} {f}')
+
+
+# In[55]:
+
+
+list11_2 = list11[:] + which11[:] + replace11[:]
+
+
+# In[56]:
+
+
+for f in list11_2:
+    print(list11_2.index(f), f)
+
+
+# In[57]:
+
+
+case11_test = open('Case11.txt', 'w')
+
+case11_test.write('\n'.join(sorted(list(set(list11_2)))))
+
+case11_test.close()
+
+
+# In[58]:
+
+
+#Case 4
+
+
+# In[59]:
+
+
+brand4 = ['a [BRAND: e.g., \"3M\"]', '[BRAND: e.g., \"3M\"]']
+
+
+# In[60]:
+
+
+fil4 = ['filter', 'air filter', 'filters', 'air filters']
+
+
+# In[61]:
+
+
+fb4 = []
+
+for f in fil4:
+    if f.endswith('s'):
+        fb4.append(f'{brand4[1]} {f}')
+    else:
+        fb4.append(f'{brand4[0]} {f}')
+
+
+# In[62]:
+
+
+for x in fb4:
+    print(fb4.index(x), x)
+
+
+# In[63]:
+
+
+a4pl = ['[ATTRIBUTE: e.g., \"priced\"] [CRITERIA: e.g., \"at least 10 dollars\"]', '[CRITERIA: e.g., \"below 15\"] [ATTRIBUTE: e.g., \"dollars\"]', 'with [ATTRIBUTE: e.g., \"MERV\"] [CRITERIA: e.g., \"between 12 and 14\"]', 'with [CRITERIA: e.g., \"4\"] [ATTRIBUTE: e.g., \"stars\"]', 'that are [ATTRIBUTE: e.g., \"priced\"] [CRITERIA: e.g., \"between 10 and 20 dollars\"]', 'that have a [ATTRIBUTE: e.g., \"MERV rating"] [CRITERIA: e.g., \"higher than 6\"]', 'that have [CRITERIA: e.g., \"at least 4\"] [ATTRIBUTE: e.g., \"star rating\"]', 'that have [CRITERIA: e.g., \"at minimum 3 months\"] [ATTRIBUTE: e.g., \"replacement time\"]', 'that [ATTRIBUTE: e.g., \"cost\"] [CRITERIA: e.g., \"at most 15 dollars\"]', 'that I need to [ATTRIBUTE: e.g., \"change\"] [CRITERIA: e.g., \"at maximum every 3 months\"]']
+
+
+# In[64]:
+
+
+for a in a4pl:
+    print(a4pl.index(a), a)
+
+
+# In[65]:
+
+
+a4sg = ['[ATTRIBUTE: e.g., \"priced\"] [CRITERIA: e.g., \"at least 10 dollars\"]', '[CRITERIA: e.g., \"below 15\"] [ATTRIBUTE: e.g., \"dollars\"]', 'with [ATTRIBUTE: e.g., \"MERV\"] [CRITERIA: e.g., \"between 12 and 14\"]', 'with [CRITERIA: e.g., \"4\"] [ATTRIBUTE: e.g., \"stars\"]', 'that is [ATTRIBUTE: e.g., \"priced\"] [CRITERIA: e.g., \"between 10 and 20 dollars\"]', 'that has a [ATTRIBUTE: e.g., \"MERV rating"] [CRITERIA: e.g., \"higher than 6\"]', 'that has [CRITERIA: e.g., \"at least 4\"] [ATTRIBUTE: e.g., \"star rating\"]', 'that has [CRITERIA: e.g., \"at minimum 3 months\"] [ATTRIBUTE: e.g., \"replacement time\"]', 'that [ATTRIBUTE: e.g., \"costs\"] [CRITERIA: e.g., \"at most 15 dollars\"]', 'that I need to [ATTRIBUTE: e.g., \"change\"] [CRITERIA: e.g., \"at maximum every 3 months\"]']
+
+
+# In[66]:
+
+
+for b in a4sg:
+    print(a4sg.index(b), b)
+
+
+# In[67]:
+
+
+fba4 = []
+
+for b in fb4:
+    if b.endswith('s'):
+        for x in a4pl:
+            fba4.append(f'{b} {x}')
+    else:
+        for e in a4sg:
+            fba4.append(f'{b} {e}')
+
+fba4am = ['a filter [CRITERIA: e.g., \"under 10\"] [ATTRIBUTE: e.g., \"dollars\"], and I like the [BRAND: e.g., \"3M\"] brand', 'an air filter [CRITERIA: e.g., \"under 10\"] [ATTRIBUTE: e.g., \"dollars\"], and I like the [BRAND: e.g., \"3M\"] brand', 'filters [CRITERIA: e.g., \"under 10\"] [ATTRIBUTE: e.g., \"dollars\"], and I like the [BRAND: e.g., \"3M\"] brand', 'air filters [CRITERIA: e.g., \"under 10\"] [ATTRIBUTE: e.g., \"dollars\"], and I like the [BRAND: e.g., \"3M\"] brand']
+
+fba4com = fba4[:] + fba4am[:]
+
+
+# In[68]:
+
+
+for fb in fba4com:
+    print(fba4com.index(fb), fb)
+
+
+# In[69]:
+
+
+s_s4 = ["I\'m looking for", 'I want', 'I want to invest in', 'I\'m shopping for', 'Here to pick up', 'I need to get', 'I need to grab', 'Looking to purchase', 'Do you have', 'Someone told me to try', 'Where', 'Here to shop for', 'I\'d like', 'I am here to buy'] 
+
+
+# In[70]:
+
+
+for s in s_s4:
+    print(s_s4.index(s), s)
+
+
+# In[71]:
+
+
+extra4 = s_s4[:8] + s_s4[11:]
+
+
+# In[72]:
+
+
+for e in extra4:
+    print(extra4.index(e), e)
+
+
+# In[73]:
+
+
+ex4full = []
+
+for e in extra4:
+    for f in fba4com:
+        ex4full.append(f"{e} {f}")
+
+
+# In[74]:
+
+
+for e in ex4full:
+    print(ex4full.index(e), e)
+
+
+# In[75]:
+
+
+wh4 = []
+
+for f in fil4:
+    if 'filters' in f:
+        wh4.append(f"Which {brand4[1]} {f} have [CRITERIA: e.g., \"at least 3\"] [ATTRIBUTE: e.g., \"stars\"]")
+    else:
+        wh4.append(f"Which {brand4[1]} {f} has [CRITERIA: e.g., \"at least 3\"] [ATTRIBUTE: e.g., \"stars\"]")
+
+
+# In[76]:
+
+
+for w in wh4:
+    print(wh4.index(w), w)
+
+
+# In[77]:
+
+
+list4 = []
+
+for s in s_s4:
+    if s is s_s4[10]:
+        for f in fba4:
+            if 'filters' in f:
+                list4.append(f'{s} are {f}')
+            else:
+                list4.append(f'{s} is {f}')
+    elif s is s_s4[8]:
+        for f in fba4:
+            list4.append(f'{s} {f}')
+    elif s is s_s4[5]:
+        for x in fb4:
+            if 'filters' in x:
+                for a in a4pl:
+                    list4.append(f'{s} {x} while I\'m here {a}')
+            else:
+                for b in a4sg:
+                    list4.append(f'{s} {x} while I\'m here {b}')
+    elif s is s_s4[6]:
+        for x in fb4:
+            if 'filters' in x:
+                for a in a4pl:
+                    list4.append(f'{s} {x} while I\'m here {a}')
+            else:
+                for b in a4sg:
+                    list4.append(f'{s} {x} while I\'m here {b}')
+    
+    else:
+        for f in fba4:
+            list4.append(f'{s} {f}')
+            
+list4_2 = list4[:] + ex4full[:] + wh4[:]
+
+
+# In[78]:
+
+
+list4_2_2 = sorted(list(set(list4_2)))
+
+
+# In[79]:
+
+
+for l in list4_2_2:
+    print(list4_2_2.index(l), l)
+
+
+# In[80]:
+
+
+case4_test = open('Case4.txt', 'w')
+
+case4_test.write('\n'.join(list4_2_2))
+
+case4_test.close()
+
+
+# In[81]:
+
+
+#Case 5
+
+
+# In[82]:
+
+
+brand5 = ['a [BRAND: e.g., \"3M\"]', '[BRAND: e.g., \"3M\"]']
+
+
+# In[83]:
+
+
+fil5 = ['filter', 'air filter', 'filters', 'air filters']
+
+
+# In[84]:
+
+
+fb5 = []
+
+for f in fil5:
+    if f.endswith('s'):
+        fb5.append(f'{brand5[1]} {f}')
+    else:
+        fb5.append(f'{brand5[0]} {f}')
+
+
+# In[85]:
+
+
+for a in fb5:
+    print(fb5.index(a), a)
+
+
+# In[86]:
+
+
+a5sg = ['with [ATTRIBUTE: e.g., \"allergen defense\"]', 'good for [ATTRIBUTE: e.g., \"pets"]', 'that helps me with [ATTRIBUTE: e.g., \"dust\"]', 'with good [ATTRIBUTE: e.g., \"pleating\"]', 'to help with my [ATTRIBUTE: e.g., \"allergies\"]', 'for all the [ATTRIBUTE: e.g., \"lint\"] in our house', 'that will get a weird [ATTRIBUTE: e.g., \"odor\"] out of my apartment', 'that [ATTRIBUTE: e.g., \"performs\"] well', 'the most [ATTRIBUTE: e.g., \"effective\"]', 'that will not be [ATTRIBUTE: e.g., \"flimsy\"]', 'that won\'t cause a [ATTRIBUTE: e.g., \"stain\"] on my AC unit', 'that helps [ATTRIBUTE: e.g., \"air flow\"]', 'for my son\'s [ATTRIBUTE: e.g., \"allergies\"]', 'with exceptional [ATTRIBUTE: e.g., \"durability\"]', 'to capture all the [ATTRIBUTE: e.g., \"lint\"] in my house', 'that can help with a bad [ATTRIBUTE: e.g., \"stench\"] in my living room', 'for [ATTRIBUTE: e.g., \"mold\"] in the house']
+
+
+# In[87]:
+
+
+for a in a5sg:
+    print(a5sg.index(a), a)
+
+
+# In[88]:
+
+
+a5pl = ['with [ATTRIBUTE: e.g., \"allergen defense\"]', 'good for [ATTRIBUTE: e.g., \"pets"]', 'that help me with [ATTRIBUTE: e.g., \"dust\"]', 'with good [ATTRIBUTE: e.g., \"pleating\"]', 'to help with my [ATTRIBUTE: e.g., \"allergies\"]', 'for all the [ATTRIBUTE: e.g., \"lint\"] in our house', 'that will get a weird [ATTRIBUTE: e.g., \"odor\"] out of my apartment', 'that [ATTRIBUTE: e.g., \"perform\"] well', 'the most [ATTRIBUTE: e.g., \"effective\"]', 'that will not be [ATTRIBUTE: e.g., \"flimsy\"]', 'that won\'t cause a [ATTRIBUTE: e.g., \"stain\"] on my AC unit', 'that help [ATTRIBUTE: e.g., \"air flow\"]', 'for my son\'s [ATTRIBUTE: e.g., \"allergies\"]', 'with exceptional [ATTRIBUTE: e.g., \"durability\"]', 'to capture all the [ATTRIBUTE: e.g., \"lint\"] in my house', 'that can help with a bad [ATTRIBUTE: e.g., \"stench\"] in my living room', 'for [ATTRIBUTE: e.g., \"mold\"] in the house']
+
+
+# In[89]:
+
+
+for b in a5pl:
+    print(a5pl.index(b), b)
+
+
+# In[90]:
+
+
+fba5 = []
+
+for b in fb5:
+    if b.endswith('s'):
+        for x in a5pl:
+            if 'most' in x:
+                fba5.append(f'{x} {b}')
+            else:
+                fba5.append(f'{b} {x}')
+    else:
+        for e in a5sg:
+            if 'most' in e:
+                fba5.append(f'{e} {b[2:]}')
+            else:
+                fba5.append(f'{b} {e}')
+
+
+# In[91]:
+
+
+for f in fba5:
+    print(fba5.index(f), f)
+
+
+# In[92]:
+
+
+s_s5 = ["I\'m looking for", 'I need', 'I want to invest in', 'Here to pick up', 'I need to get', 'I need to grab', 'Looking to purchase', 'Do you have', 'Someone told me to try', 'Can I buy', 'I\'m here to shop for', 'I\'d like to purchase', 'I like', 'Do y\'all have'] 
+
+
+# In[93]:
+
+
+for s in s_s5:
+    print(s_s5.index(s), s)
+
+
+# In[94]:
+
+
+s_s5mod = s_s5[0:3] + s_s5[4:6] + [x.lower() for x in s_s5[8:9]] + s_s5[10:13]
+
+
+# In[95]:
+
+
+for s in s_s5mod:
+    print(s_s5mod.index(s), s)
+
+
+# In[96]:
+
+
+spring5 = []
+
+for f in fil5:
+    for s in s_s5mod:
+        if 'filters' in f:
+            spring5.append(f"It's spring time and the [ATTRIBUTE: e.g., \"pollen\"] is bad, and {s} {brand5[1]} {f}")
+        else:
+            spring5.append(f"It's spring time and the [ATTRIBUTE: e.g., \"pollen\"] is bad, and {s} {brand5[0]} {f}")
+
+
+# In[97]:
+
+
+for s in spring5:
+    print(spring5.index(s), s)
+
+
+# In[98]:
+
+
+hall5 = []
+
+for f in fil5:
+    for s in s_s5mod:
+        if 'filters' in f:
+            hall5.append(f"There's a hall in our house that {s} {brand5[1]} {f} for [ATTRIBUTE: e.g., \"mold\"] for")
+        else:
+            hall5.append(f"There's a hall in our house that {s} {brand5[0]} {f} for [ATTRIBUTE: e.g., \"mold\"] for")
+
+
+# In[99]:
+
+
+for h in hall5:
+    print(hall5.index(h), h)
+
+
+# In[100]:
+
+
+there5 = []
+
+for f in fil5:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            there5.append(f"There's a [ATTRIBUTE: e.g., \"smoke smell\"], so {s} {brand5[1]} {f} to help with that")
+        else:
+            there5.append(f"There's a [ATTRIBUTE: e.g., \"smoke smell\"], so {s} {brand5[0]} {f} to help with that")
+
+
+# In[101]:
+
+
+for t in there5:
+    print(there5.index(t), t)
+
+
+# In[102]:
+
+
+list5 = []
+
+for s in s_s5:
+    if s is s_s5[7] or s is s_s5[9] or s is s_s5[13]:
+        for f in fba5:
+            list5.append(f'{s} {f}')
+    elif s is s_s5[4] or s is s_s5[5]:
+        for x in fb5:
+            if 'filters' in x:
+                for a in a5pl:
+                    if 'most' in a:
+                        list5.append(f'{s} {a} {x} while I\'m here')
+                    else:
+                        list5.append(f'{s} {x} while I\'m here {a}')
+            else:
+                for b in a5sg:
+                    if 'most' in b:
+                        list5.append(f'{s} {b} {x[2:]} while I\'m here')
+                    else:
+                        list5.append(f'{s} {x} while I\'m here {b}')
+    else:
+        for f in fba5:
+            list5.append(f'{s} {f}')
+
+
+# In[103]:
+
+
+list5_2 = list5[:] + spring5[:] + hall5[:] + there5[:]
+
+
+# In[104]:
+
+
+for l in list5_2:
+    print(list5_2.index(l), l)
+
+
+# In[105]:
+
+
+case5_test = open('Case5.txt', 'w')
+
+case5_test.write('\n'.join(sorted(list(set(list5_2)))))
+
+case5_test.close()
+
+
+# In[106]:
+
+
+#Case 6
+
+
+# In[107]:
+
+
+brand6 = ['a [BRAND: e.g., \"3M\"]', '[BRAND: e.g., \"3M\"]']
+
+
+# In[108]:
+
+
+fil6 = ['filter', 'air filter', 'filters', 'air filters']
+
+
+# In[109]:
+
+
+fb6 = []
+
+for f in fil6:
+    if f.endswith('s'):
+        fb6.append(f'{brand6[1]} {f}')
+    else:
+        fb6.append(f'{brand6[0]} {f}')
+
+
+# In[110]:
+
+
+for f in fb6:
+    print(fb6.index(f), f)
+
+
+# In[111]:
+
+
+a6sg = ['with good [ATTRIBUTE: e.g., \"customer reviews\"]', 'that [ATTRIBUTE: e.g., \"lasts\"]', 'the most [ATTRIBUTE: e.g., \"economical\"]', 'with exceptional [ATTRIBUTE: e.g., \"efficiency ratings\"]', 'that I don\'t have to [ATTRIBUTE: e.g., \"change\"] that often', 'that will [ATTRIBUTE: e.g., \"last\"] me a long time', 'with good [ATTRIBUTE: e.g., \"replacement time\"]']
+
+
+# In[112]:
+
+
+for a in a6sg:
+    print(a6sg.index(a), a)
+
+
+# In[113]:
+
+
+fba6 = []
+
+for f in fb6:
+    for a in a6sg:
+        if a is a6sg[2]:
+            if 'filters' in f:
+                fba6.append(f"{a} {f}")
+            else:
+                fba6.append(f"{a} {f[2:]}")
+        else:
+            fba6.append(f"{f} {a}")
+
+
+# In[114]:
+
+
+for f in fba6:
+    print(fba6.index(f), f)
+
+
+# In[115]:
+
+
+cheap6 = []
+
+for f in fil7:
+    cheap6.append(f"the [ATTRIBUTE: e.g., \"cheapest\"] {brand6[1]} {f} you got")
+
+
+# In[116]:
+
+
+for c in cheap6:
+    print(cheap6.index(c), c)
+
+
+# In[117]:
+
+
+that6 = []
+
+for f in fil7:
+    if 'filters' in f:
+        that6.append(f"{brand6[1]} {f} that are [ATTRIBUTE: e.g., \"cheap\"]")
+    else:
+        that6.append(f"{brand6[0]} {f} that is [ATTRIBUTE: e.g., \"cheap\"]")
+
+
+# In[118]:
+
+
+for t in that6:
+    print(that6.index(t), t)
+
+
+# In[119]:
+
+
+good6 = []
+
+for f in fil7:
+    if 'filters' in f:
+        good6.append(f"good [ATTRIBUTE: e.g., \"priced\"] {brand6[1]} {f}")
+    else:
+        good6.append(f"a good [ATTRIBUTE: e.g., \"priced\"] {brand6[1]} {f}")
+
+
+# In[120]:
+
+
+for g in good6:
+    print(good6.index(g), g)
+
+
+# In[121]:
+
+
+do6 = []
+
+for f in fil7:
+    if 'filters' in f:
+        do6.append(f"[ATTRIBUTE: e.g., \"reputable\"] [BRAND: e.g., \"Honeywell\"] {f} for the house")
+    else:
+        do6.append(f"a [ATTRIBUTE: e.g., \"reputable\"] [BRAND: e.g., \"Honeywell\"] {f} for the house")
+
+
+# In[122]:
+
+
+for d in do6:
+    print(do6.index(d), d)
+
+
+# In[123]:
+
+
+fba6com = fba6[:] + cheap6[:] + that6[:] + good6[:] + do6[:]
+
+
+# In[124]:
+
+
+for f in fba6com:
+    print(fba6com.index(f), f)
+
+
+# In[125]:
+
+
+s_s6 = ['I need', 'I want to invest in', 'Here to pick up', 'I need to grab', 'Looking to purchase', 'Do you have', 'Someone told me to try', 'Can I buy', 'I\'m in the market for', 'I like', 'Do y\'all have', 'I think I need'] 
+
+
+# In[126]:
+
+
+for s in s_s6:
+    print(s_s6.index(s), s)
+
+
+# In[127]:
+
+
+anything6 = []
+
+for f in fil7:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            anything6.append(f"{s} {brand6[1]} {f}, but I don't want anything too [ATTRIBUTE: e.g., \"expensive\"]")
+        else:
+            anything6.append(f"{s} {brand6[0]} {f}, but I don't want anything too [ATTRIBUTE: e.g., \"expensive\"]")
+
+
+# In[128]:
+
+
+for a in anything6:
+    print(anything6.index(a), a)
+
+
+# In[129]:
+
+
+interest6 = []
+
+for f in fil7:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            interest6.append(f"I'm on a [ATTRIBUTE: e.g., \"budget\"], and {s} {brand6[1]} {f}")
+        else:
+            interest6.append(f"I'm on a [ATTRIBUTE: e.g., \"budget\"], and {s} {brand6[0]} {f}")
+
+
+# In[130]:
+
+
+for a in interest6:
+    print(interest6.index(a), a)
+
+
+# In[131]:
+
+
+dont6 = []
+
+for f in fil7:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            dont6.append(f"{s} {brand6[1]} {f}, but I don't want to  [ATTRIBUTE: e.g., \"pay\"] too much if that's okay")
+        else:
+            dont6.append(f"{s} {brand6[0]} {f}, but I don't want to  [ATTRIBUTE: e.g., \"pay\"] too much if that's okay")
+
+
+# In[132]:
+
+
+for a in dont6:
+    print(dont6.index(a), a)
+
+
+# In[133]:
+
+
+price6 = []
+
+for s in s_s5mod[:8]:
+    price6.append(f"{s} the {brand6[1]}, and  [ATTRIBUTE: e.g., \"price\"] is the first thing I look at")
+
+
+# In[134]:
+
+
+for a in price6:
+    print(price6.index(a), a)
+
+
+# In[135]:
+
+
+replace6 = []
+
+for f in fil7:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            replace6.append(f"{s} {brand6[1]} {f}, but I don't want to  [ATTRIBUTE: e.g., \"replace\"] them all the time")
+        else:
+            replace6.append(f"{s} {brand6[0]} {f}, but I don't want to  [ATTRIBUTE: e.g., \"replace\"] it all the time")
+
+
+# In[136]:
+
+
+for a in replace6:
+    print(replace6.index(a), a)
+
+
+# In[137]:
+
+
+where6 = ["Where's the best [ATTRIBUTE: e.g., \"priced\"] [BRAND: e.g., \"Honeywell\"] you have"]
+
+
+# In[138]:
+
+
+list6 = []
+
+for s in s_s6:
+    if s is s_s6[5] or s is s_s6[7] or s is s_s6[10]:
+        for f in fba6com:
+            list6.append(f'{s} {f}')
+    elif s is s_s6[3]:
+        for x in fb6:
+            for b in a6sg:
+                if 'most' in b:
+                    if 'filters' in x:
+                        list6.append(f'{s} {b} {x} while I\'m here')
+                    else:
+                         list6.append(f'{s} {b} {x[2:]} while I\'m here')
+                else:
+                    list6.append(f'{s} {x} while I\'m here {b}')
+    else:
+        for f in fba6com:
+            list6.append(f'{s} {f}')
+
+
+# In[139]:
+
+
+list6_2 = list6[:] + anything6[:] + interest6[:] + dont6[:] + price6[:] + replace6[:] + where6[:]
+
+
+# In[140]:
+
+
+for l in list6_2:
+    print(list6_2.index(l), l)
+
+
+# In[141]:
+
+
+case6_test = open('Case6.txt', 'w')
+
+case6_test.write('\n'.join(sorted(list(set(list6_2)))))
+
+case6_test.close()
+
+
+# In[142]:
+
+
+#Case 7
+
+
+# In[143]:
+
+
+#fil7 = ['filter', 'air filter', 'filters', 'air filters']
+
+
+# In[144]:
+
+
+a7sg = ['with the best [ATTRIBUTE: e.g., \"MERV rating\"]', 'the most [ATTRIBUTE: e.g., \"superior\"]', 'that has [ATTRIBUTE: e.g., \"allergen defense\"] and [ATTRIBUTE: e.g., \"pet dander\"] filtering', 'that is not [ATTRIBUTE: e.g., \"flimsy\"] and catches the [ATTRIBUTE: e.g., \"clumps\"] and [ATTRIBUTE: e.g., \"dust\"] in the air', 'for [ATTRIBUTE: e.g., \"dust\"]', 'for [ATTRIBUTE: e.g., \"smoke odor\"] problems', 'with lots of [ATTRIBUTE: e.g., \"pleating\"] that catches [ATTRIBUTE: e.g., \"pet hair\"]', 'that has a good [ATTRIBUTE: e.g., \"customer rating\"], it\'s not too [ATTRIBUTE: e.g., \"expensive\"] and seems [ATTRIBUTE: e.g., \"durable\"]', 'something to catch the [ATTRIBUTE: e.g., \"particulates\"] in the air but isn\'t going to [ATTRIBUTE: e.g., \"cost\"] much', 'that isn\'t [ATTRIBUTE: e.g., \"generic looking\"]', 'that gets [ATTRIBUTE: e.g., \"lint\"] out of the air', 'that [ATTRIBUTE: e.g., \"looks good\"] and has a [ATTRIBUTE: e.g., \"good evaluation\"] but is [ATTRIBUTE: e.g., \"cheap\"], please', 'with a good [ATTRIBUTE: e.g., \"rating\"] that I don\'t have to [ATTRIBUTE: e.g., \"replace\"] too often', 'to get a [ATTRIBUTE: e.g., \"smoke smell\"] out of the air', 'for [ATTRIBUTE: e.g., \"fungus\"], [ATTRIBUTE: e.g., \"mold\"], [ATTRIBUTE: e.g., \"spores\"] and has good [ATTRIBUTE: e.g., \"material\"]']
+
+
+# In[145]:
+
+
+for a in a7sg:
+    print(a7sg.index(a), a)
+
+
+# In[146]:
+
+
+a7pl = ['with the best [ATTRIBUTE: e.g., \"MERV rating\"]', 'the most [ATTRIBUTE: e.g., \"superior\"]', 'that have [ATTRIBUTE: e.g., \"allergen defense\"] and [ATTRIBUTE: e.g., \"pet dander\"] filtering', 'that are not [ATTRIBUTE: e.g., \"flimsy\"] and catch the [ATTRIBUTE: e.g., \"clumps\"] and [ATTRIBUTE: e.g., \"dust\"] in the air', 'for [ATTRIBUTE: e.g., \"dust\"]', 'for [ATTRIBUTE: e.g., \"smoke odor\"] problems', 'with lots of [ATTRIBUTE: e.g., \"pleating\"] that catch [ATTRIBUTE: e.g., \"pet hair\"]', 'that have a good [ATTRIBUTE: e.g., \"customer rating\"], they\'re not too [ATTRIBUTE: e.g., \"expensive\"] and seem [ATTRIBUTE: e.g., \"durable\"]', 'something to catch the [ATTRIBUTE: e.g., \"particulates\"] in the air but aren\'t going to [ATTRIBUTE: e.g., \"cost\"] much', 'that aren\'t [ATTRIBUTE: e.g., \"generic looking\"]', 'that get [ATTRIBUTE: e.g., \"lint\"] out of the air', 'that [ATTRIBUTE: e.g., \"look good\"] and have a [ATTRIBUTE: e.g., \"good evaluation\"] but are [ATTRIBUTE: e.g., \"cheap\"], please', 'with a good [ATTRIBUTE: e.g., \"rating\"] that I don\'t have to [ATTRIBUTE: e.g., \"replace\"] too often', 'to get a [ATTRIBUTE: e.g., \"smoke smell\"] out of the air', 'for [ATTRIBUTE: e.g., \"fungus\"], [ATTRIBUTE: e.g., \"mold\"], [ATTRIBUTE: e.g., \"spores\"] and have good [ATTRIBUTE: e.g., \"material\"]']
+
+
+# In[147]:
+
+
+for b in a7pl:
+    print(a7pl.index(b), b)
+
+
+# In[148]:
+
+
+fa7 = []
+
+for f in fil7:
+    if 'filters' in f:
+        for a in a7pl:
+            if 'best' in a:
+                fa7.append(f"the {f} {a}")
+            elif 'for' in a:
+                fa7.append(f"[ATTRIBUTE: e.g., \"inexpensive\"] {f} {a}")
+            elif 'that are\'t [ATTRIBUTE: e.g., \"generic looking\"]' in a:
+                fa7.append(f"[ATTRIBUTE: e.g., \"good\"] {f} {a}")
+            elif 'that get [ATTRIBUTE: e.g., \"lint\"] out of the air' in a:
+                fa7.append(f"[ATTRIBUTE: e.g., \"sturdy\"], [ATTRIBUTE: e.g., \"cheap\"] {f} {a}")
+            elif 'and have good [ATTRIBUTE: e.g., \"material\"]' in a:
+                fa7.append(f"the [ATTRIBUTE: e.g., \"cheapest\"] {f} {a}")
+            elif 'to get a [ATTRIBUTE: e.g., \"smoke smell\"] out of the air' in a:
+                fa7.append(f"[ATTRIBUTE: e.g., \"reputable\"] {f} {a}")
+            elif 'the most' in a:
+                for a in a7pl:
+                    if a is not a7pl[1]:
+                        fa7.append(f"{a7pl[1]} {f} {a}")
+            else:
+                fa7.append(f"{f} {a}")
+    else:
+        for b in a7sg:
+            if 'best' in b:
+                fa7.append(f"the {f} {b}")
+            elif 'for' in b:
+                fa7.append(f"a [ATTRIBUTE: e.g., \"inexpensive\"] {f} {b}")
+            elif 'that isn\'t [ATTRIBUTE: e.g., \"generic looking\"]' in b:
+                fa7.append(f"a [ATTRIBUTE: e.g., \"good\"] {f} {b}")
+            elif 'that gets [ATTRIBUTE: e.g., \"lint\"] out of the air' in b:
+                fa7.append(f"a [ATTRIBUTE: e.g., \"sturdy\"], [ATTRIBUTE: e.g., \"cheap\"] {f} {b}")
+            elif 'and has good [ATTRIBUTE: e.g., \"material\"]' in b:
+                fa7.append(f"the [ATTRIBUTE: e.g., \"cheapest\"] {f} {b}")
+            elif 'to get a [ATTRIBUTE: e.g., \"smoke smell\"] out of the air' in b:
+                fa7.append(f"a [ATTRIBUTE: e.g., \"reputable\"] {f} {b}")
+            elif 'the most' in b:
+                for d in a7sg:
+                    if d is a7sg[1]:
+                        continue
+                    if d is a7sg[8]:
+                        continue
+                    else:
+                        fa7.append(f"{a7sg[1]} {f} {d}")
+            elif 'something' in b:
+                fa7.append(f"{b}")
+            else:
+                if 'air filter' in f:
+                    fa7.append(f"an {f} {b}")
+                else:
+                    fa7.append(f"a {f} {b}")
+
+
+# In[149]:
+
+
+for f in fa7:
+    print(fa7.index(f), f)
+
+
+# In[150]:
+
+
+s_s7 = ['I need', 'I want', 'Do you have', 'I don\'t care what brand it is, but I need', 'I like', 'Can you show me', 'I\'m looking for', 'Do y\'all have', 'I\'d like']
+
+
+# In[151]:
+
+
+for s in s_s7:
+    print(s_s7.index(s), s)
+
+
+# In[152]:
+
+
+apparent7 = []
+
+for f in fil7:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            apparent7.append(f"Apparently we have [ATTRIBUTE: e.g., \"mold\"] and [ATTRIBUTE: e.g., \"spores\"] in the house, so {s} {f} for that")
+        else:
+            if 'air filter' in f:
+                apparent7.append(f"Apparently we have [ATTRIBUTE: e.g., \"mold\"] and [ATTRIBUTE: e.g., \"spores\"] in the house, so {s} an {f} for that")
+            else:
+                apparent7.append(f"Apparently we have [ATTRIBUTE: e.g., \"mold\"] and [ATTRIBUTE: e.g., \"spores\"] in the house, so {s} a {f} for that")
+
+
+# In[153]:
+
+
+for a in apparent7:
+    print(apparent7.index(a), a)
+
+
+# In[154]:
+
+
+new7 = [] 
+
+for f in fil7:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            new7.append(f"I just got a new [ATTRIBUTE: e.g., \"kitten\"] and I'm experiencing [ATTRIBUTE: e.g., \"asthma\"], so {s} {f} to help me")
+        else:
+            if 'air filter' in f:
+                new7.append(f"I just got a new [ATTRIBUTE: e.g., \"kitten\"] and I'm experiencing [ATTRIBUTE: e.g., \"asthma\"], so {s} an {f} to help me")
+            else:
+                new7.append(f"I just got a new [ATTRIBUTE: e.g., \"kitten\"] and I'm experiencing [ATTRIBUTE: e.g., \"asthma\"], so {s} a {f} to help me")
+
+
+# In[155]:
+
+
+for n in new7:
+    print(new7.index(n), n)
+
+
+# In[156]:
+
+
+much7 = [] 
+
+for f in fil7:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            much7.append(f"We have so much [ATTRIBUTE: e.g., \"lint\"] in the air that {s} {f} for that, but not too [ATTRIBUTE: e.g., \"expensive\"]")
+        else:
+            if 'air filter' in f:
+                much7.append(f"We have so much [ATTRIBUTE: e.g., \"lint\"] in the air that {s} an {f} for that, but not too [ATTRIBUTE: e.g., \"expensive\"]")
+            else:
+                much7.append(f"We have so much [ATTRIBUTE: e.g., \"lint\"] in the air that {s} a {f} for that, but not too [ATTRIBUTE: e.g., \"expensive\"]")
+
+
+# In[157]:
+
+
+for m in much7:
+    print(much7.index(m), m)
+
+
+# In[158]:
+
+
+have7 = [] 
+
+for f in fil7:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            have7.append(f"I haven't been [ATTRIBUTE: e.g., \"breathing\"] well, so {s} {f} for that and [ATTRIBUTE: e.g., \"pollen\"]")
+        else:
+            if 'air filter' in f:
+                have7.append(f"I haven't been [ATTRIBUTE: e.g., \"breathing\"] well, so {s} an {f} for that and [ATTRIBUTE: e.g., \"pollen\"]")
+            else:
+                have7.append(f"I haven't been [ATTRIBUTE: e.g., \"breathing\"] well, so {s} a {f} for that and [ATTRIBUTE: e.g., \"pollen\"]")
+
+
+# In[159]:
+
+
+for h in have7:
+    print(have7.index(h), h)
+
+
+# In[160]:
+
+
+lots7 = [] 
+
+for f in fil7:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            lots7.append(f"I feel like there's lots of [ATTRIBUTE: e.g., \"germs\"] and [ATTRIBUTE: e.g., \"mold\"] in the air at my house, so {s} [ATTRIBUTE: e.g., \"inexpensive\"] {f} to help with that")
+        else:
+            lots7.append(f"I feel like there's lots of [ATTRIBUTE: e.g., \"germs\"] and [ATTRIBUTE: e.g., \"mold\"] in the air at my house, so {s} a [ATTRIBUTE: e.g., \"inexpensive\"] {f} to help with that")
+
+
+# In[161]:
+
+
+for h in lots7:
+    print(lots7.index(h), h)
+
+
+# In[162]:
+
+
+list7 = []
+
+for s in s_s7:
+    for f in fa7:
+        if s is s_s7[2] or s is s_s7[5] or s is s_s7[7]:
+            list7.append(f"{s} {f}")
+        else:
+            list7.append(f"{s} {f}")
+
+
+# In[163]:
+
+
+list7_2 = list7[:] + apparent7[:] + new7[:] + much7[:] + have7[:] + lots7[:]
+
+
+# In[164]:
+
+
+for l in list7_2:
+    print(list7_2.index(l), l)
+
+
+# In[165]:
+
+
+case7_test = open('Case7.txt', 'w')
+
+case7_test.write('\n'.join(sorted(list(set(list7_2)))))
+
+case7_test.close()
+
+
+# In[166]:
+
+
+#Case 8
+
+
+# In[167]:
+
+
+fil8 = ['filter', 'air filter', 'filters', 'air filters']
+
+
+# In[168]:
+
+
+a8sg = ['with [ATTRIBUTE: e.g., \"allergen defense\"]', 'that\'s good for [ATTRIBUTE: e.g., \"pollen\"]', 'that can pick up [ATTRIBUTE: e.g., \"viruses\"] and [ATTRIBUTE: e.g., \"mold\"]', 'with lots of [ATTRIBUTE: e.g., \"pleating\"] that picks up [ATTRIBUTE: e.g., \"pet hair\"]', 'for [ATTRIBUTE: e.g., \"cat dander\"]', 'that has a good [ATTRIBUTE: e.g., \"customer rating\"], is not too [ATTRIBUTE: e.g., \"expensive\"] and seems [ATTRIBUTE: e.g., \"durable\"]', 'for the house that traps [ATTRIBUTE: e.g., \"lint\"] and is not too [ATTRIBUTE: e.g., \"expensive\"]', 'to catch the [ATTRIBUTE: e.g., \"particulates\"] in the air, but isn\'t going to [ATTRIBUTE: e.g., \"cost much\"]', 'that isn\'t too [ATTRIBUTE: e.g., \"generic looking\"]', 'that gets [ATTRIBUTE: \"lint\"] out of the air', 'that [ATTRIBUTE: e.g., \"looks good\"] and has a [ATTRIBUTE: e.g., \"good evaluation\"] but is [ATTRIBUTE: e.g., \"cheap\"], please', 'you have with a good [ATTRIBUTE: e.g., \"rating\"] that I don\'t have to [ATTRIBUTE: e.g., \"replace\"] too often', 'to get a [ATTRIBUTE: e.g., \"smoke smell\"] out of the air', 'for [ATTRIBUTE: e.g., \"fungus\"], [ATTRIBUTE: e.g., \"mold\"], and [ATTRIBUTE: e.g., \"spores\"]', 'that can help with [ATTRIBUTE: e.g., \"dirt\"] and has good [ATTRIBUTE: e.g., \"performance\"]', 'that has good [ATTRIBUTE: e.g., \"material\"] and [ATTRIBUTE: e.g., \"looks expensive\"]']
+
+
+# In[169]:
+
+
+for a in a8sg:
+    print(a8sg.index(a), a)
+
+
+# In[170]:
+
+
+a8pl = ['with [ATTRIBUTE: e.g., \"allergen defense\"]', 'that are good for [ATTRIBUTE: e.g., \"pollen\"]', 'that can pick up [ATTRIBUTE: e.g., \"viruses\"] and [ATTRIBUTE: e.g., \"mold\"]', 'with lots of [ATTRIBUTE: e.g., \"pleating\"] that pick up [ATTRIBUTE: e.g., \"pet hair\"]', 'for [ATTRIBUTE: e.g., \"cat dander\"]', 'that have a good [ATTRIBUTE: e.g., \"customer rating\"], are not too [ATTRIBUTE: e.g., \"expensive\"] and seem [ATTRIBUTE: e.g., \"durable\"]', 'for the house that trap [ATTRIBUTE: e.g., \"lint\"] and are not too [ATTRIBUTE: e.g., \"expensive\"]', 'to catch the [ATTRIBUTE: e.g., \"particulates\"] in the air, but aren\'t going to [ATTRIBUTE: e.g., \"cost much\"]', 'that aren\'t too [ATTRIBUTE: e.g., \"generic looking\"]', 'that get [ATTRIBUTE: \"lint\"] out of the air', 'that [ATTRIBUTE: e.g., \"look good\"] and have a [ATTRIBUTE: e.g., \"good evaluation\"] but are [ATTRIBUTE: e.g., \"cheap\"], please', 'you have with a good [ATTRIBUTE: e.g., \"rating\"] that I don\'t have to [ATTRIBUTE: e.g., \"replace\"] too often', 'to get a [ATTRIBUTE: e.g., \"smoke smell\"] out of the air', 'for [ATTRIBUTE: e.g., \"fungus\"], [ATTRIBUTE: e.g., \"mold\"], and [ATTRIBUTE: e.g., \"spores\"]', 'that can help with [ATTRIBUTE: e.g., \"dirt\"] and have good [ATTRIBUTE: e.g., \"performance\"]', 'that have good [ATTRIBUTE: e.g., \"material\"] and [ATTRIBUTE: e.g., \"look expensive\"]']
+
+
+# In[171]:
+
+
+for a in a8pl:
+    print(a8pl.index(a), a)
+
+
+# In[172]:
+
+
+ab8 = ['[ATTRIBUTE: e.g., \"inexpensive\"] [BRAND: e.g., \"3M\"]', '[BRAND: e.g., \"3M\"]', '[ATTRIBUTE: e.g., \"sturdy\"], [ATTRIBUTE: e.g., \"cheap\"] [BRAND: e.g., \"3M\"]', 'the [ATTRIBUTE: e.g., \"inexpesive\"] [BRAND: e.g., \"3M\"]', 'the most [ATTRIBUTE: e.g., \"economic\"] [BRAND: e.g., \"3M\"]']
+
+
+# In[173]:
+
+
+abf8 = []
+
+for a in ab8:
+    for f in fil8:
+        if 'filters' in f:
+            abf8.append(f"{a} {f}")
+        else:
+            if 'the' in a:
+                abf8.append(f"{a} {f}")
+            else:
+                abf8.append(f"a {a} {f}")
+
+
+# In[174]:
+
+
+brand8 = ['a [BRAND: e.g., \"3M\"]']
+
+
+# In[175]:
+
+
+fabf8 = abf8[:] + brand8[:]
+
+
+# In[176]:
+
+
+for f in fabf8:
+    print(fabf8.index(f), f)
+
+
+# In[177]:
+
+
+full8 = []
+
+for f in fabf8:
+    if 'filters' in f:
+        for a in a8pl:
+            full8.append(f"{f} {a}")
+    else:
+        for a in a8sg:
+            full8.append(f"{f} {a}")
+
+
+# In[178]:
+
+
+for f in full8:
+    print(full8.index(f), f)
+
+
+# In[179]:
+
+
+s_s8 = ['I\'m looking for', 'Do you have', 'I want', 'I like', 'I\'d like', 'Can you show me', 'Do y\'all have', 'I am looking for', 'I\'m here to pick up', 'While I\'m here, I need']
+
+
+# In[180]:
+
+
+for s in s_s8:
+    print(s_s8.index(s), s)
+
+
+# In[181]:
+
+
+apparent8 = []
+
+for f in fil8:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            apparent8.append(f"Apparently we have [ATTRIBUTE: e.g., \"mold\"] and [ATTRIBUTE: e.g., \"spores\"] in the house, so {s} [BRAND: e.g., \"3M\"] {f} for that")
+        else:
+            apparent8.append(f"Apparently we have [ATTRIBUTE: e.g., \"mold\"] and [ATTRIBUTE: e.g., \"spores\"] in the house, so {s} a [BRAND: e.g., \"3M\"] {f} for that")
+
+
+# In[182]:
+
+
+for a in apparent8:
+    print(apparent8.index(a), a)
+
+
+# In[183]:
+
+
+new8 = [] 
+
+for f in fil8:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            new8.append(f"I just got a new [ATTRIBUTE: e.g., \"kitten\"] and I'm experiencing [ATTRIBUTE: e.g., \"asthma\"], so {s} [BRAND: e.g., \"3M\"] {f} to help me")
+        else:
+            new8.append(f"I just got a new [ATTRIBUTE: e.g., \"kitten\"] and I'm experiencing [ATTRIBUTE: e.g., \"asthma\"], so {s} a [BRAND: e.g., \"3M\"] {f} to help me")
+
+
+# In[184]:
+
+
+for n in new8:
+    print(new8.index(n), n)
+
+
+# In[185]:
+
+
+have8 = [] 
+
+for f in fil8:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            have8.append(f"I haven't been [ATTRIBUTE: e.g., \"breathing\"] well, so {s} [BRAND: e.g., \"3M\"] {f} for that and [ATTRIBUTE: e.g., \"pollen\"] in the air")
+        else:
+            have8.append(f"I haven't been [ATTRIBUTE: e.g., \"breathing\"] well, so {s} a [BRAND: e.g., \"3M\"] {f} for that and [ATTRIBUTE: e.g., \"pollen\"] in the air")
+
+
+# In[186]:
+
+
+for h in have8:
+    print(have8.index(h), h)
+
+
+# In[187]:
+
+
+lots8 = [] 
+
+for f in fil7:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            lots8.append(f"There's lots of [ATTRIBUTE: e.g., \"pollen\"] and [ATTRIBUTE: e.g., \"mold\"] in the air, so {s} [BRAND: e.g., \"3M\"] {f} for that")
+        else:
+            lots8.append(f"There's lots of [ATTRIBUTE: e.g., \"pollen\"] and [ATTRIBUTE: e.g., \"mold\"] in the air, so {s} a [BRAND: e.g., \"3M\"] {f} for that")
+
+
+# In[188]:
+
+
+for l in lots8:
+    print(lots8.index(l), l)
+
+
+# In[189]:
+
+
+list8 = []
+
+for s in s_s8:
+    for f in full8:
+        if s is s_s8[1] or s is s_s8[5] or s is s_s8[6]:
+            list8.append(f"{s} {f}?")
+        else:
+            list8.append(f"{s} {f}")
+
+
+# In[190]:
+
+
+list8_2 = list8[:] + apparent8[:] + new8[:] + have8[:] + lots8[:]
+
+
+# In[191]:
+
+
+for l in list8_2:
+    print(list8_2.index(l), l)
+
+
+# In[245]:
+
+
+case8_test = open('Case8.txt', 'w')
+
+case8_test.write('\n'.join(sorted(list(set(list8_2)))))
+
+case8_test.close()
+
+
+# In[193]:
+
+
+#Case 9
+
+
+# In[194]:
+
+
+fil9 = ['filter', 'air filter', 'filters', 'air filters']
+
+
+# In[246]:
+
+
+a9sg = ['with [ATTRIBUTE: e.g., \"allergen defense\"]', 'that\'s good for [ATTRIBUTE: e.g., \"pollen\"]', 'that can pick up [ATTRIBUTE: e.g., \"viruses\"] and [ATTRIBUTE: e.g., \"mold\"]', 'with a lot of [ATTRIBUTE: e.g., \"pleating\"] and [ATTRIBUTE: e.g., \"durability\"]', 'for [ATTRIBUTE: e.g., \"pet hair\"]', 'that has a good [ATTRIBUTE: e.g., \"customer rating\"], is not too [ATTRIBUTE: e.g., \"expensive\"], and seems [ATTRIBUTE: e.g., \"durable\"]', 'for the house that traps [ATTRIBUTE: e.g., \"lint\"] and is not too [ATTRIBUTE: e.g., \"expensive\"]', 'to catch the [ATTRIBUTE: e.g., \"particulates\"] in the air, but isn\'t going to [ATTRIBUTE: e.g., \"cost\"] much', 'that isn\'t too [ATTRIBUTE: e.g., \"generic looking\"]', 'that gets [ATTRIBUTE: e.g., \"lint\"] out of the air', 'that [ATTRIBUTE: e.g., \"looks good\"] and has a [ATTRIBUTE: e.g., \"good evaluation\"] but is [ATTRIBUTE: e.g., \"cheap\"], please', 'you have please', 'to get [ATTRIBUTE: e.g., \"smoke smell\"] out of the air', 'for [ATTRIBUTE: e.g., \"fungus\"], [ATTRIBUTE: e.g., \"mold\"], and [ATTRIBUTE: e.g., \"spores\"]', 'that has good [ATTRIBUTE: e.g., \"material\"]']
+
+
+# In[247]:
+
+
+for a in a9sg:
+    print(a9sg.index(a), a)
+
+
+# In[248]:
+
+
+a9pl = ['with [ATTRIBUTE: e.g., \"allergen defense\"]', 'that are good for [ATTRIBUTE: e.g., \"pollen\"]', 'that can pick up [ATTRIBUTE: e.g., \"viruses\"] and [ATTRIBUTE: e.g., \"mold\"]', 'with a lot of [ATTRIBUTE: e.g., \"pleating\"] and [ATTRIBUTE: e.g., \"durability\"]', 'for [ATTRIBUTE: e.g., \"pet hair\"]', 'that have a good [ATTRIBUTE: e.g., \"customer rating\"], are not too [ATTRIBUTE: e.g., \"expensive\"], and seem [ATTRIBUTE: e.g., \"durable\"]', 'for the house that trap [ATTRIBUTE: e.g., \"lint\"] and are not too [ATTRIBUTE: e.g., \"expensive\"]', 'to catch the [ATTRIBUTE: e.g., \"particulates\"] in the air, but aren\'t going to [ATTRIBUTE: e.g., \"cost\"] much', 'that aren\'t too [ATTRIBUTE: e.g., \"generic looking\"]', 'that get [ATTRIBUTE: e.g., \"lint\"] out of the air', 'that [ATTRIBUTE: e.g., \"look good\"] and have a [ATTRIBUTE: e.g., \"good evaluation\"] but are [ATTRIBUTE: e.g., \"cheap\"], please', 'you have please', 'to get [ATTRIBUTE: e.g., \"smoke smell\"] out of the air', 'for [ATTRIBUTE: e.g., \"fungus\"], [ATTRIBUTE: e.g., \"mold\"], and [ATTRIBUTE: e.g., \"spores\"]', 'that have good [ATTRIBUTE: e.g., \"material\"]']
+
+
+# In[249]:
+
+
+for a in a9pl:
+    print(a9pl.index(a), a)
+
+
+# In[250]:
+
+
+ab9 = ['[BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"]', 'the [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"]', '[ATTRIBUTE: e.g., \"cheap\"] [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"]', '[BRAND: e.g., \"3M\"], [BRAND: e.g., \"Honeywell\"], or [BRAND: e.g., \"Nordic Pure\"]', '[BRAND: e.g., \"3M\"]', '[ATTRIBUTE: e.g., \"sturdy\"], [ATTRIBUTE: e.g., \"cheap\"] [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"]', '[BRAND: e.g., \"3M\"] and [BRAND: e.g., \"Nordic Pure\"]', 'the most [ATTRIBUTE: e.g., \"economic\"] [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"]']
+
+
+# In[253]:
+
+
+for a in ab9:
+    print(ab9.index(a), a)
+
+
+# In[258]:
+
+
+abf9 = []
+
+for a in ab9:
+    for f in fil9:
+        abf9.append(f"{a} {f}")
+
+
+# In[259]:
+
+
+for a in abf9:
+    print(abf9.index(a), a)
+
+
+# In[262]:
+
+
+com_abf9 = abf9[:24] + abf9[26:]
+
+
+# In[263]:
+
+
+for c in com_abf9:
+    print(com_abf9.index(c), c)
+
+
+# In[264]:
+
+
+abfa9 = []
+
+for c in com_abf9:
+    if 'filters' in c:
+        for a in a9pl:
+            abfa9.append(f"{c} {a}")
+    else:
+        if 'the' in c:
+            for a in a9sg:
+                abfa9.append(f"{c} {a}")
+        else:
+            for b in a9sg:
+                abfa9.append(f"a {c} {b}")
+
+
+# In[265]:
+
+
+for a in abfa9:
+    print(abfa9.index(a), a)
+
+
+# In[266]:
+
+
+s_s9 = ['I\'m looking for', 'Do you have', 'I want', 'I like', 'I\'d like', 'I want to look at', 'Can you show me', 'Do y\'all have', 'I\'m here to pick up']
+
+
+# In[267]:
+
+
+for s in s_s9:
+    print(s_s9.index(s), s)
+
+
+# In[268]:
+
+
+apparent9 = []
+
+for f in fil9:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            apparent9.append(f"Apparently we have [ATTRIBUTE: e.g., \"mold\"] and [ATTRIBUTE: e.g., \"spores\"] in the house, so {s} [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"] {f} for that")
+        else:
+            apparent9.append(f"Apparently we have [ATTRIBUTE: e.g., \"mold\"] and [ATTRIBUTE: e.g., \"spores\"] in the house, so {s} a [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"] {f} for that")
+
+
+# In[269]:
+
+
+for a in apparent9:
+    print(apparent9.index(a), a)
+
+
+# In[270]:
+
+
+have9 = [] 
+
+for f in fil9:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            have9.append(f"I haven't been [ATTRIBUTE: e.g., \"breathing\"] well, so {s} [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"] {f} for that and [ATTRIBUTE: e.g., \"pollen\"] in the air")
+        else:
+            have9.append(f"I haven't been [ATTRIBUTE: e.g., \"breathing\"] well, so {s} a [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"] {f} for that and [ATTRIBUTE: e.g., \"pollen\"] in the air")
+
+
+# In[271]:
+
+
+for h in have9:
+    print(have9.index(h), h)
+
+
+# In[272]:
+
+
+lots9 = [] 
+
+for f in fil9:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            lots9.append(f"There's lots of [ATTRIBUTE: e.g., \"pollen\"] and [ATTRIBUTE: e.g., \"mold\"] in the air, so {s} [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"] {f} for that")
+        else:
+            lots9.append(f"There's lots of [ATTRIBUTE: e.g., \"pollen\"] and [ATTRIBUTE: e.g., \"mold\"] in the air, so {s} a [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"] {f} for that")
+
+
+# In[273]:
+
+
+for l in lots9:
+    print(lots9.index(l), l)
+
+
+# In[274]:
+
+
+either9 = [] 
+
+for f in fil9:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            either9.append(f"{s} either [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"] {f} that can pick up [ATTRIBUTE: e.g. \"viruses\"] and [ATTRIBUTE: e.g., \"mold\"]")
+        else:
+            either9.append(f"{s} either a [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"] {f} that can pick up [ATTRIBUTE: e.g. \"viruses\"] and [ATTRIBUTE: e.g., \"mold\"]")
+
+
+# In[275]:
+
+
+for e in either9:
+    print(either9.index(e), e)
+
+
+# In[276]:
+
+
+list9 = []
+
+for s in s_s9:
+    for a in abfa9:
+        if s is s_s9[1] or s is s_s9[7] or s is s_s9[8]:
+            list9.append(f"{s} {a}?")
+        else:
+            list9.append(f"{s} {a}")
+
+
+# In[277]:
+
+
+list9_2 = list9[:] + apparent9[:] + have9[:] + lots9[:] + either9[:]
+
+
+# In[278]:
+
+
+for l in list9_2:
+    print(list9_2.index(l), l)
+
+
+# In[279]:
+
+
+case9_test = open('Case9.txt', 'w')
+
+case9_test.write('\n'.join(sorted(list(set(list9_2)))))
+
+case9_test.close()
+
+
+# In[220]:
+
+
+#Case 10
+
+
+# In[221]:
+
+
+fil10 = ['filter', 'air filter', 'filters', 'air filters']
+
+
+# In[280]:
+
+
+b10 = ['[BRAND: e.g., \"3M\"] or [BRAND:e.g., \"Nordic Pure\"]', '[BRAND: e.g., \"3M\"], [BRAND: e.g., \"Honeywell\"], or [BRAND:e.g., \"Nordic Pure\"]', '[BRAND: e.g., \"3M\"] and [BRAND:e.g., \"Nordic Pure\"]']
+
+
+# In[281]:
+
+
+fb10 = []
+
+for b in b10:
+    for f in fil10:
+        if 'filters' in f:
+            fb10.append(f"{b} {f}")
+        else:
+            fb10.append(f"a {b} {f}")
+        
+for f in fil10:
+    if 'filters' in f:
+        fb10.append(f"[BRAND: e.g., \"3M\"] {f} or [BRAND: e.g., \"Nordic Pure\"] {f}")
+    else:
+        fb10.append(f"a [BRAND: e.g., \"3M\"] {f} or [BRAND: e.g., \"Nordic Pure\"] {f}")
+
+
+# In[282]:
+
+
+fb10.remove(fb10[8])
+
+
+# In[283]:
+
+
+fb10.remove(fb10[8])
+
+
+# In[284]:
+
+
+for f in fb10:
+    print(fb10.index(f), f)
+
+
+# In[285]:
+
+
+s_s10 = ['I\'m looking for', 'I think I need', 'Do you have', 'Can I buy', 'I am here to buy', 'I want to look at', 'I\'m shopping for', 'While I\'m here, I need to purchase', 'Here to pick up', 'Can you help me with', 'Looking to purchase', 'Would you mind telling me about', 'I\'m interested in']
+
+
+# In[286]:
+
+
+for s in s_s10:
+    print(s_s10.index(s), s)
+
+
+# In[287]:
+
+
+either10 = [] 
+
+for f in fil10:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            either10.append(f"{s} either [BRAND: e.g., \"3M\"], [BRAND: e.g., \"Honeywell\"], or [BRAND: e.g., \"Nordic Pure\"] {f}")
+        else:
+            either10.append(f"{s} either a [BRAND: e.g., \"3M\"], [BRAND: e.g., \"Honeywell\"], or [BRAND: e.g., \"Nordic Pure\"] {f}")
+
+
+# In[288]:
+
+
+for e in either10:
+    print(either10.index(e), e)
+
+
+# In[289]:
+
+
+like10 = [] 
+
+for f in fil10:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            like10.append(f"{s} {f} that are either [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"], please")
+        else:
+            if 'air' in f:
+                like10.append(f"{s} an {f} that is either [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"], please")
+            else:
+                like10.append(f"{s} a {f} that is either [BRAND: e.g., \"3M\"] or [BRAND: e.g., \"Nordic Pure\"], please")
+                
+
+
+# In[290]:
+
+
+for l in like10:
+    print(like10.index(l), l)
+
+
+# In[291]:
+
+
+also10 = [] 
+
+for f in fil10:
+    for s in s_s5mod[:8]:
+        if 'filters' in f:
+            also10.append(f"{s} [BRAND: e.g., \"3M\"] {f}, but I also want to look at [BRAND: e.g., \"Nordic Pure\"] and [BRAND: e.g., \"Honeywell\"] as well.")
+        else:
+            also10.append(f"{s} a [BRAND: e.g., \"3M\"] {f}, but I also want to look at [BRAND: e.g., \"Nordic Pure\"] and [BRAND: e.g., \"Honeywell\"] as well.")
+                
+
+
+# In[292]:
+
+
+for a in also10:
+    print(also10.index(a), a)
+
+
+# In[293]:
+
+
+s_s5mod10 = s_s5mod[:]
+
+s_s5mod10.remove(s_s5mod10[5])
+
+
+# In[294]:
+
+
+for s in s_s5mod10:
+    print(s_s5mod10.index(s), s)
+
+
+# In[295]:
+
+
+know10 = [] 
+
+for f in fil10:
+    for s in s_s5mod10:
+        if 'filters' in f:
+            know10.append(f"I don't know what {s} yet, but it's between [BRAND: e.g., \"Nordic Pure\"] or [BRAND: e.g., \"Honeywell\"] {f}")
+        else:
+            know10.append(f"I don't know what {s} yet, but it's between a [BRAND: e.g., \"Nordic Pure\"] or [BRAND: e.g., \"Honeywell\"] {f}")
+                
+
+
+# In[296]:
+
+
+for k in know10:
+    print(know10.index(k), k)
+
+
+# In[302]:
+
+
+list10 = []
+
+for s in s_s10:
+    for f in fb10:
+        if s is s_s10[2] or s is s_s10[3] or s is s_s10[9] or s is s_s10[11]:
+            list10.append(f"{s} {f}")
+        else:
+            list10.append(f"{s} {f}")
+
+
+# In[303]:
+
+
+can10 = []
+
+for x in list10:
+    if 'Can you help me' in x:
+        can10.append(f"{x[:-1]} while I'm here?")
+    else:
+        continue
+
+
+# In[304]:
+
+
+for c in can10:
+    print(can10.index(c), c)
+
+
+# In[305]:
+
+
+list10_2 = list10[:] + either10[:] + like10[:] + also10[:] + know10[:] + can10
+
+
+# In[306]:
+
+
+for l in list10_2:
+    print(list10_2.index(l), l)
+
+
+# In[307]:
+
+
+case10_test = open('Case10.txt', 'w')
+
+case10_test.write('\n'.join(sorted(list(set(list10_2)))))
+
+case10_test.close()
+
